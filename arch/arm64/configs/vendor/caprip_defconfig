@@ -736,19 +736,9 @@ CONFIG_SARSENSOR_SX933X=y
 CONFIG_MMI_SYS_TEMP=y
 >>>>>>> 21df70f0cbfb (Update caprip_defconfig):arch/arm64/configs/caprip_defconfig
 
-#
 CONFIG_TOUCHSCREEN_PROPERTIES=y
 CONFIG_INPUT_NOVA_DRM_PANEL=y
 CONFIG_TOUCHSCREEN_NT36xxx_HOSTDL_SPI_MMI=y
-CONFIG_TOUCHSCREEN_ILITEK_CHIPSET=y
-CONFIG_TOUCHSCREEN_NOVATEK_CHIPSET=y
-CONFIG_NOVA_ESD_ENABLE=y
-CONFIG_INPUT_ILI_0FLASH_MMI_ENABLE_DOUBLE_TAP=y
-CONFIG_INPUT_ILI_PANEL_NOTIFICATIONS=y
-CONFIG_ILITEK_FW_PANEL=y
-CONFIG_ILITEK_ESD=y
-CONFIG_ILITEK_GESTURE=y
-CONFIG_ILITEK_PANEL_GESTURE=y
 
 CONFIG_INPUT_FINGERPRINT=y
 CONFIG_FINGERPRINT_CHIPONE_FPS_MMI=y
@@ -756,10 +746,7 @@ CONFIG_FINGERPRINT_FPC_TEE_MMI=y
 CONFIG_INPUT_QPNP_POWER_ON_MMI=y
 CONFIG_EXFAT_FS=y
 
-
-
 CONFIG_ANDROID_BINDER_DEVICES="binder,hwbinder,vndbinder,anbox-binder,anbox-hwbinder,anbox-vndbinder"
-
 
 CONFIG_FHANDLE=y
 # CONFIG_SCHED_TUNE is not set
@@ -988,14 +975,10 @@ CONFIG_NET_UDP_TUNNEL=y
 CONFIG_CRYPTO_ALGAPI=y
 CONFIG_WIREGUARD=y
 
-# MODULY 
-
 # CONFIG_MODULE_SIG=y
 # CONFIG_MODULE_SIG_FORCE=y
 # CONFIG_MODULE_SIG_SHA512=y
 CONFIG_MODULE_FORCE_LOAD=y
-
-# TESTOWE
 
 CONFIG_DRM_MSM_REGISTER_LOGGING=y
 CONFIG_DRM_MSM_KCAL_CTRL=y
@@ -1004,21 +987,14 @@ CONFIG_DRM_SDE_RSC=y
 CONFIG_DRM_LT_LT9611=y
 CONFIG_FB_ARMCLCD=y
 
-
 CONFIG_MMI_DEVICE_DTBS=y
 CONFIG_CAPRIP_DTB=y
-
 CONFIG_BUILD_ARM64_UNCOMPRESSED_KERNEL
-# CONFIG_CMDLINE="cgroup_disable=pressure"
-# CONFIG_CMDLINE_EXTEND=y
-
 
 CONFIG_CMDLINE="ramoops_memreserve=4M"
 CONFIG_CMDLINE_EXTEND=y
 
 # CONFIG_TOUCHSCREEN_NT36XXX=y
-
-# z check-kernel-config wraz z porownaniem z poco m3 (dodane te ktore wywalil check oraz sa takie wlasnie z poco m3)
 
 CONFIG_NET_CLS_CGROUP=y
 CONFIG_CGROUP_NET_CLASSID=y
@@ -1030,6 +1006,3 @@ CONFIG_MSM_VIDC_V4L2=y
 CONFIG_MSM_VIDC_GOVERNORS=y
 CONFIG_MSM_SDE_ROTATOR=y
 CONFIG_MSM_SDE_ROTATOR_EVTLOG_DEBUG=y
-
-# CONFIG_CMDLINE="ramoops_memreserve=4M rcupdate.rcu_expedited=1 rcu_nocbs=0-7 kpti=off console=null androidboot.hardware=qcom androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 loop.max_part=7 androidboot.hab.csv=11 androidboot.hab.product=caprip androidboot.hab.cid=50 buildvariant=user console=null androidboot.hardware=qcom androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 loop.max_part=7 console=null quiet androidboot.verifiedbootstate=orange androidboot.keymaster=1 androidboot.bootdevice=4744000.sdhci androidboot.fstab_suffix=emmc androidboot.boot_devices=soc/4744000.sdhci androidboot.serialno=ZT3224ZT2X androidboot.device=caprip androidboot.revision=pvt androidboot.hwrev=0xC000 androidboot.radio=EUAPEM androidboot.powerup_reason=0x00004000 androidboot.bootreason=reboot msm_poweroff.download_mode=0 wifimacaddr=38:E3:9F:11:24:4D,38:E3:9F:11:24:4E androidboot.btmacaddr=38:E3:9F:11:24:4C androidboot.bootloader=MBM-3.0-caprip_retail-a19110dec6-220131 androidboot.carrier=reteu androidboot.hardware.sku=XT2129-2 androidboot.mode=normal androidboot.baseband=msm androidboot.slot_suffix=_a rootwait ro init=/init androidboot.dtbo_idx=0 androidboot.dtb_idx=0 androidboot.force_normal_boot=1 storage_mfrid=0x15 androidboot.sku_variant=n androidboot.dualsim=true androidboot.secure_hardware=1 androidboot.cid=0x0032 androidboot.write_protect=0 androidboot.bl_state=2 androidboot.ssm_data=00000000000FEEE0"
-# CONFIG_CMDLINE_FORCE=y
