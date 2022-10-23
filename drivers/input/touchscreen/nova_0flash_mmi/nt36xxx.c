@@ -1359,7 +1359,7 @@ static int32_t nvt_parse_dt(struct device *dev)
 						NVT_LOG("%s: matched FW IC: %s", __func__, ic_name);
 						snprintf(nvt_boot_firmware_name, NVT_FILE_NAME_LENGTH, "%s_%s_nt36525c_novatek_ts_fw.bin",
 							ts->panel_supplier, ic_name);
-						snprintf(nvt_mp_firmware_name, NVT_FILE_NAME_LENGTH, "%s_%s_novatek_ts_mp.bin",
+						snprintf(nvt_mp_firmware_name, NVT_FILE_NAME_LENGTH, "%s_%s_nt36525c_novatek_ts_mp.bin",
 							ts->panel_supplier, ic_name);
 						break;
 					}
