@@ -83,7 +83,7 @@ extern const uint16_t touch_key_array[TOUCH_KEY_NUM];
 extern const uint16_t gesture_key_array[];
 #endif
 #define BOOT_UPDATE_FIRMWARE 0
-#define BOOT_UPDATE_FIRMWARE_NAME "novatek_ts_fw.bin"
+#define BOOT_UPDATE_FIRMWARE_NAME "nt36525c_novatek_ts_fw.bin"
 
 //---ESD Protect.---
 #define NVT_TOUCH_ESD_PROTECT 0
