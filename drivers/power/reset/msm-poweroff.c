@@ -481,7 +481,7 @@ __setup("sys_restart_mode=", set_sys_restart_mode);
 
 static void msm_restart_prepare(const char *cmd)
 {
-	bool need_warm_reset = false;
+	bool need_warm_reset = true;
 	/* Write download mode flags if we're panic'ing
 	 * Write download mode flags if restart_mode says so
 	 * Kill download mode if master-kill switch is set
@@ -513,7 +513,7 @@ static void msm_restart_prepare(const char *cmd)
 	if (force_warm_reboot || need_warm_reset || in_panic)
 		qpnp_pon_system_pwr_off(PON_POWER_OFF_WARM_RESET);
 	else
-		qpnp_pon_system_pwr_off(PON_POWER_OFF_HARD_RESET);
+		qpnp_pon_system_pwr_off(PON_POWER_OFF_WARM_RESET);
 
 	if (cmd != NULL) {
 		if (!strncmp(cmd, "bootloader", 10)) {
@@ -527,7 +527,7 @@ static void msm_restart_prepare(const char *cmd)
 			 * force cold reboot here to avoid unexpected
 			 * warm boot from bootloader.
 			 */
-			qpnp_pon_system_pwr_off(PON_POWER_OFF_HARD_RESET);
+			qpnp_pon_system_pwr_off(PON_POWER_OFF_WARM_RESET);
 		} else if (!strncmp(cmd, "recovery", 8)) {
 			qpnp_pon_set_restart_reason(
 				PON_RESTART_REASON_RECOVERY);
@@ -563,19 +563,13 @@ static void msm_restart_prepare(const char *cmd)
 			qpnp_pon_store_extra_reset_info(RESET_EXTRA_POST_REBOOT_MASK,
 				RESET_EXTRA_POST_WDT_REASON);
 			 /* force cold reboot */
-			qpnp_pon_system_pwr_off(PON_POWER_OFF_HARD_RESET);
+			qpnp_pon_system_pwr_off(PON_POWER_OFF_WARM_RESET);
 		} else if (!strncmp(cmd, "post-pmicwdt", 12)) {
 			/* set  flag in PMIC to nofity BL post pmic watchdog reboot */
 			qpnp_pon_store_extra_reset_info(RESET_EXTRA_POST_REBOOT_MASK,
 				RESET_EXTRA_POST_PMICWDT_REASON);
 			 /* force cold reboot */
-			qpnp_pon_system_pwr_off(PON_POWER_OFF_HARD_RESET);
-		} else if (!strncmp(cmd, "post-panic", 10)) {
-			/* set  flag in PMIC to nofity BL post panic reboot */
-			qpnp_pon_store_extra_reset_info(RESET_EXTRA_POST_REBOOT_MASK,
-				RESET_EXTRA_POST_PANIC_REASON);
-			 /* force cold reboot */
-			qpnp_pon_system_pwr_off(PON_POWER_OFF_HARD_RESET);
+			qpnp_pon_system_pwr_off(PON_POWER_OFF_WARM_RESET);
 		} else if (!strncmp(cmd, "hw_warmreset", 13)) {
 			qpnp_pon_set_restart_reason(
 				PON_RESTART_REASON_HW_WARMRESET);
@@ -586,7 +580,7 @@ static void msm_restart_prepare(const char *cmd)
 			qpnp_pon_store_extra_reset_info(RESET_EXTRA_POST_REBOOT_MASK,
 				RESET_EXTRA_POST_HWWARM_RESET_REASON);
 			 /* force cold reboot */
-			qpnp_pon_system_pwr_off(PON_POWER_OFF_HARD_RESET);
+			qpnp_pon_system_pwr_off(PON_POWER_OFF_WARM_RESET);
 		} else {
 			__raw_writel(0x77665501, restart_reason);
 		}
