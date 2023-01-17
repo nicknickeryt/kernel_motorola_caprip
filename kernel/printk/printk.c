@@ -2150,14 +2150,11 @@ static int __init console_setup(char *str)
 	char *s, *options, *brl_options = NULL;
 	int idx;
 
-<<<<<<< HEAD
-	if (str[0] == 0)
+        if (str[0] == 0)
 		return 1;
 
-=======
 	str = "tty0";
 	
->>>>>>> bbd858291f9d (Patch kernel to append console="tty0")
 	if (_braille_console_setup(&str, &brl_options))
 		return 1;
 
